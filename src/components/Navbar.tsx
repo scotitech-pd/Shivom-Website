@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -86,7 +87,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0 flex items-center gap-3">
+            <Image
+              src="/logos/WhatsApp-Image-2025-04-05-at-1.57.23-PM.jpeg"
+              alt="Shivom MBA College logo"
+              width={80}
+              height={80}
+              className="rounded-full object-cover"
+            />
             <span className="text-2xl font-bold text-white">Shivom MBA College</span>
           </Link>
 
