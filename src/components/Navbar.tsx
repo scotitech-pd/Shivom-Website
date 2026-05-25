@@ -85,17 +85,17 @@ export default function Navbar() {
   return (
     <nav className="bg-gradient-to-r from-blue-900 to-blue-700 sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-44">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center gap-3">
             <Image
               src="/logos/WhatsApp-Image-2025-04-05-at-1.57.23-PM.jpeg"
               alt="Shivom MBA College logo"
-              width={80}
-              height={80}
-              className="rounded-full object-cover"
+              width={240}
+              height={240}
+              className="object-contain"
+              priority
             />
-            <span className="text-2xl font-bold text-white">Shivom MBA College</span>
           </Link>
 
           {/* Desktop Navigation */}
