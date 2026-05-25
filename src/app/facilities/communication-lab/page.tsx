@@ -1,121 +1,84 @@
-import Link from 'next/link';
+import {
+  AccentList,
+  Callout,
+  Checklist,
+  PageSection,
+  PageShell,
+} from '@/components/page-shell';
+
+const facilities = [
+  { title: 'Audio-visual equipment', description: 'Projectors, screens, and sound systems for guided practice and presentations.' },
+  { title: 'Recording studio', description: 'Professional-grade tools for speech review, video projects, and communication exercises.' },
+  { title: 'Seminar hall', description: 'A larger venue for group discussions, speaking sessions, and mock interviews.' },
+  { title: 'Practice rooms', description: 'Individual and group spaces for rehearsal, coaching, and repeated improvement.' },
+  { title: 'Reference resources', description: 'Communication books, journals, and learning materials that support self-development.' },
+];
+
+const programs = [
+  { title: 'English communication workshops', description: 'Grammar, vocabulary, and practical communication confidence.' },
+  { title: 'Presentation skills training', description: 'Structure, delivery, pacing, and audience engagement techniques.' },
+  { title: 'Interview preparation', description: 'Mock interviews and readiness support for placements.' },
+  { title: 'Business writing', description: 'Professional writing for reports, proposals, and workplace communication.' },
+  { title: 'Group discussions', description: 'Team communication, listening, and discussion discipline.' },
+  { title: 'Soft-skills development', description: 'Confidence, etiquette, personality, and professional conduct.' },
+];
 
 export default function CommunicationLabPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Link href="/" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-900 mb-8">
-          ← Back to Home
-        </Link>
-
-        <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Communication Laboratory</h1>
-          <div className="h-1 w-20 bg-blue-600 mb-6"></div>
-          <p className="text-gray-600 text-lg">Dedicated Space for Developing Professional Communication Skills</p>
+    <PageShell
+      section="Facilities"
+      title="Communication Laboratory"
+      description="A dedicated space for building verbal, written, and presentation skills that strengthen classroom participation, placement performance, and long-term professional growth."
+      chips={[
+        { label: 'Focus', value: 'Communication Skills' },
+        { label: 'Format', value: 'Practice-led' },
+        { label: 'Use Cases', value: 'Interviews + Presentations' },
+        { label: 'Outcome', value: 'Professional confidence' },
+      ]}
+      heroImage={{ src: '/media/3.jpg', alt: 'Shivom Communication Laboratory' }}
+      primaryAction={{ href: '/contact', label: 'Ask About Student Support' }}
+      secondaryAction={{ href: '/research/lectures', label: 'See Academic Events' }}
+    >
+      <PageSection eyebrow="Overview" title="Communication as a core employability skill.">
+        <div className="space-y-5 text-base leading-8 text-slate-700">
+          <p>
+            Communication is critical to success in academics, interviews, internships, and
+            professional life. Shivom&apos;s Communication Lab helps students build these skills in a
+            structured and supportive setting.
+          </p>
         </div>
+      </PageSection>
 
-        <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Overview</h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Communication is a critical skill for success in any profession. Shivom's Communication Lab is specially designed to help students develop effective verbal, written, and presentation skills in a supportive environment.
-          </p>
+      <PageSection eyebrow="Facilities" title="Spaces and tools used for communication training.">
+        <AccentList items={facilities} columns={2} />
+      </PageSection>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Lab Facilities</h3>
-          <ul className="space-y-3 mb-8">
-            <li className="flex gap-3">
-              <span className="text-blue-600 font-bold">•</span>
-              <span className="text-gray-700"><strong>Audio-Visual Equipment:</strong> Projectors, screens, and sound systems for presentations</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-blue-600 font-bold">•</span>
-              <span className="text-gray-700"><strong>Recording Studio:</strong> Professional-grade recording equipment for video projects</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-blue-600 font-bold">•</span>
-              <span className="text-gray-700"><strong>Seminar Hall:</strong> Spacious auditorium for group discussions and mock interviews</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-blue-600 font-bold">•</span>
-              <span className="text-gray-700"><strong>Practice Rooms:</strong> Individual and group practice spaces</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-blue-600 font-bold">•</span>
-              <span className="text-gray-700"><strong>Library:</strong> Collection of communication books, journals, and online resources</span>
-            </li>
-          </ul>
+      <PageSection eyebrow="Programs" title="Regular activities that improve performance.">
+        <AccentList items={programs} columns={2} />
+      </PageSection>
 
-          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Programs & Activities</h3>
-          <div className="space-y-4 mb-8">
-            {[
-              {
-                title: 'English Communication Workshops',
-                description: 'Regular workshops on grammar, vocabulary, and everyday communication',
-              },
-              {
-                title: 'Presentation Skills Training',
-                description: 'Techniques for effective presentations and public speaking',
-              },
-              {
-                title: 'Interview Preparation',
-                description: 'Mock interviews and guidance for campus placements',
-              },
-              {
-                title: 'Business Writing',
-                description: 'Training in professional letter writing, reports, and proposals',
-              },
-              {
-                title: 'Group Discussions',
-                description: 'Practice in team communication and group decision-making',
-              },
-              {
-                title: 'Soft Skills Development',
-                description: 'Programs focusing on personality development and professional etiquette',
-              },
-            ].map((program, index) => (
-              <div key={index} className="border-l-4 border-blue-600 pl-4 py-3">
-                <p className="font-semibold text-blue-900">{program.title}</p>
-                <p className="text-gray-700 text-sm">{program.description}</p>
-              </div>
-            ))}
-          </div>
-
-          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Trained Instructors</h3>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            The lab is managed by experienced communication experts with backgrounds in media, journalism, corporate training, and public relations. They provide personalized guidance to help students overcome communication barriers.
-          </p>
-
-          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Student Benefits</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            {[
+      <div className="grid gap-6 lg:grid-cols-3">
+        <Callout title="Trained instructors" tone="blue">
+          The lab is guided by communication experts with backgrounds in media, journalism,
+          corporate training, and public relations.
+        </Callout>
+        <Callout title="Student benefits" tone="green">
+          <Checklist
+            items={[
               'Improved public speaking confidence',
-              'Professional presentation skills',
               'Better interview performance',
-              'Enhanced group discussion skills',
-              'Correct English pronunciation',
-              'Strong written communication',
-              'Professional networking abilities',
-              'Leadership development',
-            ].map((benefit, index) => (
-              <div key={index} className="flex gap-3">
-                <span className="text-green-600 font-bold">✓</span>
-                <span className="text-gray-700">{benefit}</span>
-              </div>
-            ))}
-          </div>
-
-          <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Lab Hours</h3>
-          <div className="bg-blue-50 p-6 rounded-lg">
-            <p className="text-gray-700 mb-2"><strong>Monday to Friday:</strong> 9:00 AM - 5:00 PM (with scheduled sessions)</p>
-            <p className="text-gray-700"><strong>Saturday:</strong> 10:00 AM - 2:00 PM</p>
-            <p className="text-gray-700 text-sm mt-4">Students can book slots in advance for personalized coaching and practice sessions.</p>
-          </div>
-
-          <div className="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg">
-            <p className="text-gray-900 font-semibold">Tip:</p>
-            <p className="text-gray-700 mt-2">Regular participation in communication lab programs significantly enhances placement success and professional career advancement.</p>
-          </div>
-        </div>
+              'Stronger written communication',
+              'Enhanced group discussion ability',
+            ]}
+            columns={1}
+          />
+        </Callout>
+        <Callout title="Lab hours" tone="slate">
+          <p><strong>Monday to Friday:</strong> 9:00 AM - 5:00 PM</p>
+          <p><strong>Saturday:</strong> 10:00 AM - 2:00 PM</p>
+          <p className="mt-2">Students can book slots in advance for guided practice.</p>
+        </Callout>
       </div>
-    </div>
+    </PageShell>
   );
 }
